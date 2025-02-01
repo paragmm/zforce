@@ -1,9 +1,6 @@
 # zForce
 
 ## Description
-A brief description of your project goes here. Explain what your project does, its features, and any other relevant information.
-
-## Description
 This project is a demonstration of a brute force attack on a login page with CSRF (Cross-Site Request Forgery) protection. It showcases how attackers can exploit vulnerabilities in web applications to gain unauthorized access. The project includes features such as:
 
 - Simulating brute force attacks on a login page
