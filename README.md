@@ -1,4 +1,4 @@
-# Project Name
+# zForce
 
 ## Description
 A brief description of your project goes here. Explain what your project does, its features, and any other relevant information.
@@ -18,17 +18,17 @@ Provide step-by-step instructions on how to install and set up your project.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/zforce.git
+git clone https://github.com/paragmm/zforce.git
 
 # Navigate to the project directory
-cd yourproject
+cd zforce
 
 # Install dependencies
 npm install
 ```
 
 ## Usage
-Explain how to use your project. Provide examples and code snippets if necessary.
+Explain how to use zforce. Provide examples and code snippets if necessary.
 
 ```bash
 # Run the project
