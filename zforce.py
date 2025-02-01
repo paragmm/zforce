@@ -4,6 +4,23 @@
 import requests
 from bs4 import BeautifulSoup
 
+# Function to display colorful ASCII art
+def display_ascii_art():
+    ascii_art = r"""
+       ___                              
+      (  _`\                            
+ ____ | (_(_)   _    _ __    ___    __  
+(_  ,)|  _)   /'_`\ ( '__) /'___) /'__`\
+ /'/_ | |    ( (_) )| |   ( (___ (  ___/
+(____)(_)    `\___/'(_)   `\____)`\____)
+                                        
+by Parag Dhali
+"""
+    print(ascii_art)
+
+# Display ASCII art
+display_ascii_art()
+
 # Target website and login path
 TARGET_URL = "http://192.168.0.100/DVWA/vulnerabilities/brute/"  # Replace with the actual target
 USERNAME = "admin"  # Change if needed
