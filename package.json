@@ -5,11 +5,10 @@
   "main": "zforce.py",
   "scripts": {
     "start": "python zforce.py",
-    "postinstall": "pip install requests beautifulsoup4"
+    "postinstall": "venv\\Scripts\\activate && pip install requests beautifulsoup4"
   },
   "dependencies": {
-    "requests": "^2.26.0",
-    "beautifulsoup4": "^4.10.0"
+    "requests": "^2.26.0"
   },
   "devDependencies": {},
   "author": "Parag Dhali",
