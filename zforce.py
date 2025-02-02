@@ -26,7 +26,7 @@ TARGET_URL = "http://localhost/DVWA/vulnerabilities/brute/"  # Replace with the 
 USERNAME = "admin"  # Change if needed
 PASSWORD_FILE = "password_list.txt"  # Path to the password list
 CSRF_TOKEN_FIELD_NAME = "user_token"  # Initialize CSRF token field name from the user
-REQUEST_METHOD = "POST"  # Initialize request method from the user (GET or POST)
+REQUEST_METHOD = "GET"  # Initialize request method from the user (GET or POST)
 USERNAME_FIELD_NAME = "username"  # Initialize username field name from the user
 PASSWORD_FIELD_NAME = "password"  # Initialize password field name from the user
 EXTRA_FIELDS = {"Login":"Login"}  # Add extra fields as query string from the user
@@ -36,7 +36,7 @@ session = requests.Session()
 
 # Initialize the first cookie from the user
 # Initialize the first cookie from the user
-initial_cookie = {"security": "impossible","PHPSESSID":"8v029g60siqf401k1lmgqmb8pm"}  # Replace with the actual initial cookie value
+initial_cookie = {"security": "high","PHPSESSID":"8v029g60siqf401k1lmgqmb8pm"}  # Replace with the actual initial cookie value
 session.cookies.update(initial_cookie)
 
 def update_initial_cookie():
